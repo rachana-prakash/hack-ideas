@@ -15,10 +15,10 @@ export class HomeComponent implements OnInit, OnDestroy {
   updateSubscription: Subscription;
 
   constructor(private router: Router, private utilService: UtilService) {
-    if (this.utilService.getLocalStorageItem('challenge') && this.utilService.getLocalStorageItem('challenge').length === 0) {
-      this.utilService.setLocalStorageItem('challenge', this.codeChallenges);
-    } else {
+    if (this.utilService.getLocalStorageItem('challenge') && this.utilService.getLocalStorageItem('challenge').length !== 0) {
       this.codeChallenges = this.utilService.getLocalStorageItem('challenge');
+    } else {
+      this.utilService.setLocalStorageItem('challenge', this.codeChallenges);
     }
     this.checkVoteStatus();
   }
@@ -35,14 +35,18 @@ export class HomeComponent implements OnInit, OnDestroy {
   checkVoteStatus(): void {
     const employeeId = this.utilService.getLocalStorageItem('employeeId');
     const voteStatus = this.utilService.getLocalStorageItem(employeeId);
-    this.codeChallenges = this.codeChallenges.map((challenge) => {
-      voteStatus.challenges.filter((item) => {
-        if (challenge.id === item.challengeId) {
-          challenge = {...challenge, upvoted: item.upvote, downvoted: item.downvote};
+    if (!!this.codeChallenges.length) {
+      this.codeChallenges = this.codeChallenges.map((challenge) => {
+        if (voteStatus && voteStatus.challenges && voteStatus.challenges.length) {
+          voteStatus.challenges.filter((item) => {
+            if (challenge.id === item.challengeId) {
+              challenge = {...challenge, upvoted: item.upvote, downvoted: item.downvote};
+            }
+          });
         }
+        return challenge;
       });
-      return challenge;
-    });
+    }
   }
 
   addChallenge(): void {

@@ -26,6 +26,7 @@ export class PrimaryHeaderComponent implements OnInit, OnDestroy {
 
   logOut(): void {
     localStorage.removeItem('employeeName');
+    localStorage.removeItem('employeeId');
     localStorage.removeItem('isLoggedInStatus');
     this.utilService.loginStatusSubject$.next(true);
     this.router.navigate(['login']);
