@@ -1,0 +1,24 @@
+@import "../assets/theme/main-mixins";
+
+.main-page {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  height: 100%;
+
+  .router-container {
+    height: calc(100% - 116px);
+
+    @include main-tablet() {
+      height: calc(100% - 177px);
+    }
+
+    .outlet-container {
+      @include main-page();
+    }
+
+    .popup-container {
+
+    }
+  }
+}
