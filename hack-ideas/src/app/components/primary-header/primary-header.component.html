@@ -3,7 +3,7 @@
     <li class="header-item">
       LOGO
     </li>
-    <li>
+    <li *ngIf="isLoggedInStatus" (click)="logOut()">
       Logout
     </li>
   </ul>

@@ -1,1 +1,22 @@
-<p>add-challenge works!</p>
+<section>
+  <div class="form-container">
+    <form [formGroup]="addChallengeForm">
+      <div class="form-control-container">
+        <p class="form-label">Title</p>
+        <input formControlName="title" autocomplete="off"/>
+      </div>
+      <div class="form-control-container">
+        <p class="form-label">Description</p>
+        <textarea formControlName="description" autocomplete="off"> </textarea>
+      </div>
+      <div class="form-control-container">
+        <p class="form-label">Tags</p>
+        <select formControlName="tag">
+          <option [value]="'tech'">tech</option>
+          <option [value]="'feature'">feature</option>
+        </select>
+      </div>
+    </form>
+  </div>
+  <p (click)="addChallenge()">Add a challenge</p>
+</section>

@@ -1,4 +1,4 @@
-import {UserDB} from '../app/models/user-database.model';
+import {UserDB} from '../../app/models/user-database.model';
 
 export const userDatabase: UserDB[] = [
   {employeeId: '111', employeeName: 'ray'},

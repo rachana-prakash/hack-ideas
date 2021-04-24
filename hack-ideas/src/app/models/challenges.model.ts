@@ -1,7 +1,8 @@
 export interface Challenge {
+  id: number;
   title: string;
   description: string;
-  tags: string;
+  tag: string;
   count: number;
   date: Date;
 }

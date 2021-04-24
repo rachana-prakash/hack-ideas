@@ -1,1 +1,56 @@
-<p>home works!</p>
+<section>
+  <div>
+    <p (click)="addChallenge()"> Add Challenge</p>
+  </div>
+  <table class="grid">
+    <thead>
+    <tr>
+      <th>
+        Challenge
+      </th>
+      <th>
+        Description
+      </th>
+      <th>Tags</th>
+      <th>
+        Creation Date
+        <div (click)="sortDateChallenges('asc')"> asc</div>
+        <div (click)="sortDateChallenges('desc')">desc</div>
+      </th>
+      <th>
+        Vote Count
+        <div (click)="sortCountChallenges('asc')"> asc</div>
+        <div (click)="sortCountChallenges('desc')">desc</div>
+      </th>
+      <th>
+        Vote
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let challenge of codeChallenges; let index=i">
+      <td>
+        {{challenge?.title}}
+      </td>
+      <td>
+        {{challenge?.description}}
+      </td>
+      <td>
+        {{challenge?.tag}}
+      </td>
+      <td>
+        {{challenge?.date | date:'mediumDate' }}
+      </td>
+      <td>
+        {{challenge?.count}}
+      </td>
+      <td (click)="vote('upvote',challenge)">
+        +
+      </td>
+      <td (click)="vote('downvote',challenge)">
+        -
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</section>
