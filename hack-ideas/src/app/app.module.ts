@@ -4,9 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import {AppRoutingModule} from './app-routing.module';
 import {MainComponentModule} from './components/main-component.module';
-import {LoginModule} from './main/login/login.module';
 import {AddChallengeModule} from './modals/add-challenge/add-challenge.module';
-import {HomeModule} from './main/home/home.module';
 @NgModule({
   declarations: [
     AppComponent
@@ -15,9 +13,7 @@ import {HomeModule} from './main/home/home.module';
     BrowserModule,
     AppRoutingModule,
     MainComponentModule,
-    LoginModule,
-    AddChallengeModule,
-    HomeModule
+    AddChallengeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
