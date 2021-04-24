@@ -16,6 +16,7 @@ export class PrimaryHeaderComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    this.isLoggedInStatus = JSON.parse((localStorage.getItem('isLoggedInStatus')));
     this.loginStatusSubscription = this.utilService.loginStatusSubject$.subscribe((actionEmitted) => {
       if (actionEmitted) {
         this.isLoggedInStatus = JSON.parse((localStorage.getItem('isLoggedInStatus')));

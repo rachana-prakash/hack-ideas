@@ -33,6 +33,7 @@ export class LoginComponent implements OnInit {
     if (validUserFlag) {
       localStorage.setItem('employeeName', validUser[0].employeeName);
       localStorage.setItem('isLoggedInStatus', 'true');
+      this.utilService.setLocalStorageItem('employeeId', validUser[0].employeeId);
       this.utilService.loginStatusSubject$.next(true);
       this.router.navigate(['home']);
     } else {

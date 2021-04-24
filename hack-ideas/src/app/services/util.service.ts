@@ -15,7 +15,7 @@ export class UtilService {
     localStorage.setItem(key, JSON.stringify(data));
   }
 
-  getLocalStorageItem(key): [] {
+  getLocalStorageItem(key): any {
     return JSON.parse((localStorage.getItem(key)));
   }
 }

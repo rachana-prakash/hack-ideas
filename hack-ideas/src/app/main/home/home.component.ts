@@ -20,13 +20,28 @@ export class HomeComponent implements OnInit, OnDestroy {
     } else {
       this.codeChallenges = this.utilService.getLocalStorageItem('challenge');
     }
+    this.checkVoteStatus();
   }
 
   ngOnInit(): void {
     this.updateSubscription = this.utilService.updateChallengesSubject$.subscribe((update) => {
       if (update) {
         this.codeChallenges = this.utilService.getLocalStorageItem('challenge');
+        this.checkVoteStatus();
       }
+    });
+  }
+
+  checkVoteStatus(): void {
+    const employeeId = this.utilService.getLocalStorageItem('employeeId');
+    const voteStatus = this.utilService.getLocalStorageItem(employeeId);
+    this.codeChallenges = this.codeChallenges.map((challenge) => {
+      voteStatus.challenges.filter((item) => {
+        if (challenge.id === item.challengeId) {
+          challenge = {...challenge, upvoted: item.upvote, downvoted: item.downvote};
+        }
+      });
+      return challenge;
     });
   }
 
@@ -38,22 +53,37 @@ export class HomeComponent implements OnInit, OnDestroy {
     switch (type) {
       case 'upvote':
         challenge = {...challenge, count: ++challenge.count};
+        this.updateVoteStatus(challenge.id, true, false);
         break;
       case 'downvote':
         challenge = {...challenge, count: --challenge.count};
+        this.updateVoteStatus(challenge.id, false, true);
         break;
     }
     this.alterChallenges(challenge);
   }
 
+  updateVoteStatus(challengeId, upvote, downvote): void {
+    const employeeId = this.utilService.getLocalStorageItem('employeeId');
+    let challengesArray = this.utilService.getLocalStorageItem(employeeId) && this.utilService.getLocalStorageItem('voteStatus').challenges || [];
+    challengesArray = [...challengesArray,
+      {challengeId, upvote, downvote}
+    ];
+    this.utilService.setLocalStorageItem(employeeId, {
+      employeeId,
+      challenges: challengesArray
+    });
+  }
+
   alterChallenges(challenge: Challenge): void {
-    this.codeChallenges.map((codeChallengeItem) => {
+    this.codeChallenges = this.codeChallenges.map((codeChallengeItem) => {
       if (codeChallengeItem.id === challenge.id) {
         codeChallengeItem = {...challenge};
       }
       return codeChallengeItem;
     });
     this.utilService.setLocalStorageItem('challenge', this.codeChallenges);
+    this.checkVoteStatus();
   }
 
   sortCountChallenges(order): void {

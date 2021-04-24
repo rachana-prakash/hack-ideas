@@ -5,4 +5,6 @@ export interface Challenge {
   tag: string;
   count: number;
   date: Date;
+  upvoted?: boolean;
+  downvoted?: boolean;
 }
