@@ -1,0 +1,36 @@
+@import "../../../assets/theme/variables";
+@import "../../../assets/theme/main-mixins";
+
+footer {
+  padding: 10px;
+  background: $hi-white;
+  color: $hi-font-color;
+  box-shadow: 4px 0 14px -3px rgb(0 0 0 / 9%);
+
+  .footer-container {
+    display: flex;
+    justify-content: flex-start;
+
+    .footer-item {
+      flex-basis: auto;
+      padding: 3px;
+      display: flex;
+      font-family: Roboto, "Helvetica Neue", sans-serif;
+    }
+  }
+}
+
+@include main-tablet() {
+  footer {
+    padding: 15px;
+
+    .footer-container {
+      padding: 5px;
+
+      .footer-item {
+        flex-basis: 100px;
+        padding: 5px;
+      }
+    }
+  }
+}

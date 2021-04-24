@@ -1,0 +1,35 @@
+@import "../../../assets/theme/variables";
+@import "../../../assets/theme/main-mixins";
+
+header {
+  padding: 5px;
+  background: $hi-white;
+  color: $hi-font-color;
+  box-shadow: 0 4px 14px -3px rgb(0 0 0 / 9%);
+
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+
+    .header-item {
+      flex-basis: auto;
+      padding: 3px;
+
+    }
+  }
+}
+
+@include main-tablet() {
+  header {
+    padding: 15px;
+
+    .header-container {
+      padding: 5px;
+
+      .header-item {
+        flex-basis: 100px;
+        padding: 5px;
+      }
+    }
+  }
+}
