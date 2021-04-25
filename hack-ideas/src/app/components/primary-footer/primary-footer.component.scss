@@ -2,42 +2,29 @@
 @import "../../../assets/theme/main-mixins";
 
 footer {
-  padding: 10px;
+  padding: 15px;
   background: $hi-white;
   border-top: 2px solid $hi-yellow;
+
   .footer-container {
     display: flex;
     justify-content: flex-start;
+    padding: 5px;
 
     .footer-item {
-      flex-basis: auto;
-      padding: 3px;
       display: flex;
       font-family: Roboto, "Helvetica Neue", sans-serif;
-    }
-  }
-}
-
-@include main-tablet() {
-  footer {
-    padding: 15px;
-
-    .footer-container {
+      flex-basis: 100px;
       padding: 5px;
 
-      .footer-item {
-        flex-basis: 100px;
-        padding: 5px;
+      a {
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 18px;
+        color: $hi-black;
 
-        a {
-          text-decoration: none;
-          font-weight: bold;
-          font-size: 18px;
-          color: $hi-black;
-
-          &:hover {
-            color: $hi-yellow;
-          }
+        &:hover {
+          color: $hi-yellow;
         }
       }
     }

@@ -14,7 +14,7 @@ section {
   .table-container {
     display: flex;
     overflow: hidden;
-    height: 90%;
+    height: 88%;
 
     table {
       @include flex-box(nowrap, stretch, stretch);
@@ -32,6 +32,24 @@ section {
             padding: 16px 10px;
             flex-basis: 10%;
             flex-shrink: 0;
+            display: flex;
+            align-items: center;
+
+            .sorting-container {
+              display: flex;
+              align-items: center;
+
+              .icon-container {
+                display: flex;
+                flex-direction: column;
+
+                .material-icons {
+                  cursor: pointer;
+                  font-size: 20px;
+                  line-height: 15px;
+                }
+              }
+            }
           }
 
           .description {
@@ -40,7 +58,7 @@ section {
 
           .vote-header {
             flex-basis: 20%;
-            column-span: 2;
+            justify-content: center;
           }
         }
       }
@@ -76,6 +94,16 @@ section {
         .vote {
           justify-content: center;
         }
+
+        .upvote {
+          color: green;
+          pointer-events: none;
+        }
+
+        .downvote {
+          color: red;
+          pointer-events: none;
+        }
       }
     }
 
@@ -90,10 +118,15 @@ section {
       font-weight: bold;
       font-size: 20px;
       cursor: pointer;
+      display: flex;
+      align-items: center;
+
+      .material-icons {
+        padding-right: 5px;
+      }
 
       &:hover {
         color: $hi-yellow;
-        text-decoration: underline;
       }
     }
   }

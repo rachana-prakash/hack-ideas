@@ -69,7 +69,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   updateVoteStatus(challengeId, upvote, downvote): void {
     const employeeId = this.utilService.getLocalStorageItem('employeeId');
-    let challengesArray = this.utilService.getLocalStorageItem(employeeId) && this.utilService.getLocalStorageItem('voteStatus').challenges || [];
+    let challengesArray = this.utilService.getLocalStorageItem(employeeId) && this.utilService.getLocalStorageItem('voteStatus') && this.utilService.getLocalStorageItem('voteStatus').challenges || [];
     challengesArray = [...challengesArray,
       {challengeId, upvote, downvote}
     ];

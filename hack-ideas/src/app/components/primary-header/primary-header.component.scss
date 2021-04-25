@@ -2,23 +2,32 @@
 @import "../../../assets/theme/main-mixins";
 
 header {
-  padding: 5px;
+  padding: 15px;
   background: $hi-white;
   font-weight: bold;
   border-bottom: 2px solid $hi-yellow;
   .header-container {
     display: flex;
     justify-content: space-between;
-
+    padding: 5px;
     .header-item {
       flex-basis: auto;
-      padding: 3px;
+      padding: 5px;
       color: $hi-black;
-      cursor: pointer;
 
-      &:hover {
-        color: $hi-yellow;
+      &:last-child {
+        display: flex;
+
+        p {
+          cursor: pointer;
+          padding-left: 10px;
+
+          &:hover {
+            color: $hi-yellow;
+          }
+        }
       }
+
     }
 
     .logo {
@@ -26,20 +35,6 @@ header {
 
       &:hover {
         color: $hi-black;
-      }
-    }
-  }
-}
-
-@include main-tablet() {
-  header {
-    padding: 15px;
-
-    .header-container {
-      padding: 5px;
-
-      .header-item {
-        padding: 5px;
       }
     }
   }

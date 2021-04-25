@@ -16,9 +16,7 @@
   align-items: center;
   box-sizing: border-box;
   background-color: rgba(246, 213, 124, 0.75);
-  @include main-desktop() {
-    padding-top: 15px;
-  }
+  padding-top: 15px;
 }
 
 .add-challenge-container {

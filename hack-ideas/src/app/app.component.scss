@@ -7,18 +7,11 @@
   height: 100%;
 
   .router-container {
-    height: calc(100% - 116px);
-
-    @include main-tablet() {
-      height: calc(100% - 152.5px);
-    }
+    height: calc(100% - 152.5px);
 
     .outlet-container {
       @include main-page();
     }
 
-    .popup-container {
-
-    }
   }
 }

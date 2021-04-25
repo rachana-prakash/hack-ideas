@@ -57,14 +57,3 @@
   align-items: $align;
   justify-content: $justify-content;
 }
-@mixin main-tablet {
-  @media screen and (min-width: 768px) {
-    @content;
-  }
-}
-
-@mixin main-desktop {
-  @media screen and (min-width: 1280px) {
-    @content;
-  }
-}

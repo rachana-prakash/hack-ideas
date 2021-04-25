@@ -1,6 +1,8 @@
 <section>
   <div class="add-challenge">
-    <p (click)="addChallenge()"> Add Challenge</p>
+    <p (click)="addChallenge()"><span class="material-icons">
+add_circle
+</span> Add Challenge</p>
   </div>
   <div class="table-container">
     <table>
@@ -14,16 +16,25 @@
         </th>
         <th>Tags</th>
         <th>
-          Creation Date
-          <div (click)="sortDateChallenges('asc')"> asc</div>
-          <div (click)="sortDateChallenges('desc')">desc</div>
+          <div class="sorting-container">
+            <p>Creation Date</p>
+            <div class="icon-container">
+              <span class="material-icons" (click)="sortDateChallenges('desc')">expand_less</span>
+              <span class="material-icons" (click)="sortDateChallenges('asc')">expand_more</span>
+            </div>
+          </div>
+
         </th>
         <th>
-          Vote Count
-          <div (click)="sortCountChallenges('asc')"> asc</div>
-          <div (click)="sortCountChallenges('desc')">desc</div>
+          <div class="sorting-container">
+            <p>Vote Count</p>
+            <div class="icon-container">
+              <span class="material-icons" (click)="sortCountChallenges('desc')">expand_less</span>
+              <span class="material-icons" (click)="sortCountChallenges('asc')">expand_more</span>
+            </div>
+          </div>
         </th>
-        <th class="vote-header">
+        <th colspan="2" class="vote-header">
           Vote
         </th>
       </tr>
@@ -45,11 +56,13 @@
         <td>
           {{challenge?.count}}
         </td>
-        <td class="pointer vote" (click)="vote('upvote',challenge)">
-          +
+        <td class="pointer vote">
+          <span class="material-icons" [class.upvote]="challenge?.upvoted" (click)="vote('upvote',challenge)">
+thumb_up
+</span>
         </td>
-        <td class="pointer vote" (click)="vote('downvote',challenge)">
-          -
+        <td class="pointer vote">
+          <span class="material-icons" [class.downvote]="challenge?.downvoted" (click)="vote('downvote',challenge)">thumb_down</span>
         </td>
       </tr>
       </tbody>
