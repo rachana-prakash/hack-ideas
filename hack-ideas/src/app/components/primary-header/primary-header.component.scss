@@ -20,6 +20,14 @@ header {
         color: $hi-yellow;
       }
     }
+
+    .logo {
+      font-size: 24px;
+
+      &:hover {
+        color: $hi-black;
+      }
+    }
   }
 }
 
@@ -31,7 +39,6 @@ header {
       padding: 5px;
 
       .header-item {
-        flex-basis: 100px;
         padding: 5px;
       }
     }
