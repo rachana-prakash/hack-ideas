@@ -57,11 +57,11 @@ export class HomeComponent implements OnInit, OnDestroy {
   vote(type: string, challenge: Challenge): void {
     switch (type) {
       case 'upvote':
-        challenge = {...challenge, count: ++challenge.count};
+        challenge = challenge.downvoted ? {...challenge, count: challenge.count + 2} : {...challenge, count: ++challenge.count};
         this.updateVoteStatus(challenge.id, true, false);
         break;
       case 'downvote':
-        challenge = {...challenge, count: --challenge.count};
+        challenge = challenge.upvoted ? {...challenge, count: challenge.count - 2} : {...challenge, count: --challenge.count};
         this.updateVoteStatus(challenge.id, false, true);
         break;
     }
