@@ -1,0 +1,12 @@
+<div class="main-page">
+  <app-primary-header></app-primary-header>
+  <div class="router-container">
+    <div class="outlet-container">
+      <router-outlet #o="outlet"></router-outlet>
+    </div>
+    <div class="popup-container">
+      <router-outlet name="popup"></router-outlet>
+    </div>
+  </div>
+  <app-primary-footer></app-primary-footer>
+</div>

@@ -1,0 +1,59 @@
+@import "variables";
+@mixin scroll-bar() {
+  &::-webkit-scrollbar {
+    width: 12px;
+    background: #f2f6f9;
+  }
+  &::-webkit-scrollbar-track-piece {
+    background: #f2f6f9;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #aab9c7;
+    border: 2px solid #f2f6f9;
+  }
+}
+
+@mixin main-page() {
+  display: flex;
+  min-height: 0;
+  flex: 1 1 auto;
+  overflow-y: auto;
+  overflow-x: hidden;
+  @include scroll-bar();
+  height: 100%;
+  width: 100%;
+}
+
+@mixin button() {
+  position: relative;
+  border: none;
+  padding: 0 30px;
+  height: 40px;
+  font-size: 20px;
+  transition: .4s;
+  cursor: pointer;
+  border-radius: 10px;
+  outline: none;
+  color: white;
+}
+
+@mixin primary_button() {
+
+  @include button();
+  background: $hi-yellow;
+  color: $hi-black;
+  margin-right: 10px;
+
+  &:hover {
+    background: $hi-black;
+    color: $hi-yellow;
+  }
+
+}
+
+@mixin flex-box($wrap: nowrap,$align: stretch,$justify-content: flex-start) {
+  display: flex;
+  flex-wrap: $wrap;
+  align-items: $align;
+  justify-content: $justify-content;
+}

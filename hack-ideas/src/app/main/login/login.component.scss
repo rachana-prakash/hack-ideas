@@ -1,0 +1,79 @@
+@import "../../../assets/theme/variables";
+@import "../../../assets/theme/main-mixins";
+
+:host {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  background: $hi-yellow;
+}
+
+.login-container {
+  height: 50%;
+  display: flex;
+  padding: 10px;
+  align-items: center;
+
+  .text-container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    background: $hi-black;
+    color: white;
+    padding: 60px;
+    border-radius: 10px 0 0 10px;
+  }
+
+  .form-container {
+    flex-basis: 50%;
+    height: 100%;
+    background: white;
+    padding: 60px;
+    border-radius: 0 10px 10px 0;
+
+    form {
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+
+      img {
+        height: 50px;
+        object-fit: contain;
+      }
+      .input-container {
+        padding-bottom: 20px;
+
+        input {
+          height: 35px;
+          width: 100%;
+          outline: none;
+          border: none;
+          border-bottom: 1px solid $hi-grey;
+          font-size: 16px;
+          background: white;
+        }
+
+        .error {
+          padding-top: 10px;
+          font-style: italic;
+          color: $hi-error;
+        }
+      }
+
+      .form-footer {
+        display: flex;
+        justify-content: center;
+        button {
+          @include primary_button();
+        }
+      }
+    }
+  }
+
+}

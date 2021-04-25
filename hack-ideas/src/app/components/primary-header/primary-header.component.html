@@ -1,0 +1,12 @@
+<header>
+  <ul class="header-container">
+    <li class="header-item logo">
+      HACK<i>IDEAS</i>
+    </li>
+    <li class="header-item " *ngIf="isLoggedInStatus">
+      Welcome, {{employeeName}}!
+      <p (click)="logOut()">Logout</p>
+    </li>
+  </ul>
+</header>
+

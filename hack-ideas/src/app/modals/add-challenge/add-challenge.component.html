@@ -1,0 +1,29 @@
+<section class="add-challenge-container">
+  <div class="text-container">
+    <p> Add a challenge!</p>
+  </div>
+  <div class="form-container">
+    <form [formGroup]="addChallengeForm">
+      <div class="form-control-container">
+        <input placeholder="Title" formControlName="title" autocomplete="off"/>
+      </div>
+      <div class="form-control-container">
+        <textarea placeholder="Description" formControlName="description" autocomplete="off"> </textarea>
+      </div>
+      <div class="form-control-container">
+        <select formControlName="tag">
+          <option [value]="''" disabled selected hidden> Choose a Tag</option>
+          <option [value]="'Tech'">Tech</option>
+          <option [value]="'Feature'">Feature</option>
+        </select>
+      </div>
+      <div class="form-control-container error" *ngIf="errorMessage">
+        {{errorMessage}}
+      </div>
+      <div class="form-footer">
+        <button class="primary-btn" type="button" (click)="addChallenge()"> ADD</button>
+        <button class="primary-btn" type="button" (click)="cancel()"> CANCEL</button>
+      </div>
+    </form>
+  </div>
+</section>

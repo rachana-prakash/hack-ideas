@@ -1,0 +1,18 @@
+<div class="login-container">
+  <div class="text-container">
+    <p> Login to check out the latest challenges!</p>
+  </div>
+  <div class="form-container">
+    <form [formGroup]="loginForm">
+      <img [src]="logoPath"/>
+      <div class="input-container">
+        <input placeholder="Employee ID" formControlName="employeeId" type="password" autocomplete="off"/>
+        <p class="error" *ngIf="errorMessage">{{errorMessage}}</p>
+      </div>
+
+      <div class="form-footer">
+        <button class="primary-btn" type="button" (click)="login()"> SIGN IN</button>
+      </div>
+    </form>
+  </div>
+</div>

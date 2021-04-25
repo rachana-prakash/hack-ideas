@@ -1,0 +1,32 @@
+@import "../../../assets/theme/variables";
+@import "../../../assets/theme/main-mixins";
+
+footer {
+  padding: 15px;
+  background: $hi-white;
+  border-top: 2px solid $hi-yellow;
+
+  .footer-container {
+    display: flex;
+    justify-content: flex-start;
+    padding: 5px;
+
+    .footer-item {
+      display: flex;
+      font-family: Roboto, "Helvetica Neue", sans-serif;
+      flex-basis: 100px;
+      padding: 5px;
+
+      a {
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 18px;
+        color: $hi-black;
+
+        &:hover {
+          color: $hi-yellow;
+        }
+      }
+    }
+  }
+}

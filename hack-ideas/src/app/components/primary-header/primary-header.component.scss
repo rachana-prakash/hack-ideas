@@ -1,0 +1,41 @@
+@import "../../../assets/theme/variables";
+@import "../../../assets/theme/main-mixins";
+
+header {
+  padding: 15px;
+  background: $hi-white;
+  font-weight: bold;
+  border-bottom: 2px solid $hi-yellow;
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    .header-item {
+      flex-basis: auto;
+      padding: 5px;
+      color: $hi-black;
+
+      &:last-child {
+        display: flex;
+
+        p {
+          cursor: pointer;
+          padding-left: 10px;
+
+          &:hover {
+            color: $hi-yellow;
+          }
+        }
+      }
+
+    }
+
+    .logo {
+      font-size: 24px;
+
+      &:hover {
+        color: $hi-black;
+      }
+    }
+  }
+}
