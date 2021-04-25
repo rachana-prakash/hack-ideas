@@ -4,9 +4,7 @@
 footer {
   padding: 10px;
   background: $hi-white;
-  color: $hi-font-color;
-  box-shadow: 4px 0 14px -3px rgb(0 0 0 / 9%);
-
+  border-top: 2px solid $hi-yellow;
   .footer-container {
     display: flex;
     justify-content: flex-start;

@@ -1,3 +1,4 @@
+@import "variables";
 @mixin scroll-bar() {
   &::-webkit-scrollbar {
     width: 12px;
@@ -36,7 +37,26 @@
   color: white;
 }
 
+@mixin primary_button() {
 
+  @include button();
+  background: $hi-yellow;
+  color: $hi-black;
+  margin-right: 10px;
+
+  &:hover {
+    background: $hi-black;
+    color: $hi-yellow;
+  }
+
+}
+
+@mixin flex-box($wrap: nowrap,$align: stretch,$justify-content: flex-start) {
+  display: flex;
+  flex-wrap: $wrap;
+  align-items: $align;
+  justify-content: $justify-content;
+}
 @mixin main-tablet {
   @media screen and (min-width: 768px) {
     @content;

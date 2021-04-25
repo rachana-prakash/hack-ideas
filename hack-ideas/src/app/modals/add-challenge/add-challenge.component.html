@@ -1,22 +1,26 @@
-<section>
+<section class="add-challenge-container">
+  <div class="text-container">
+    <p> Add a challenge!</p>
+  </div>
   <div class="form-container">
     <form [formGroup]="addChallengeForm">
       <div class="form-control-container">
-        <p class="form-label">Title</p>
-        <input formControlName="title" autocomplete="off"/>
+        <input placeholder="Title" formControlName="title" autocomplete="off"/>
       </div>
       <div class="form-control-container">
-        <p class="form-label">Description</p>
-        <textarea formControlName="description" autocomplete="off"> </textarea>
+        <textarea placeholder="Description" formControlName="description" autocomplete="off"> </textarea>
       </div>
       <div class="form-control-container">
-        <p class="form-label">Tags</p>
         <select formControlName="tag">
-          <option [value]="'tech'">tech</option>
-          <option [value]="'feature'">feature</option>
+          <option [value]="''" disabled selected hidden> Choose a Tag</option>
+          <option [value]="'Tech'">Tech</option>
+          <option [value]="'Feature'">Feature</option>
         </select>
+      </div>
+      <div class="form-footer">
+        <button class="primary-btn" type="button" (click)="addChallenge()"> ADD</button>
+        <button class="primary-btn" type="button" (click)="cancel()"> CANCEL</button>
       </div>
     </form>
   </div>
-  <p (click)="addChallenge()">Add a challenge</p>
 </section>

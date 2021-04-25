@@ -4,9 +4,8 @@
 header {
   padding: 5px;
   background: $hi-white;
-  color: $hi-font-color;
-  box-shadow: 0 4px 14px -3px rgb(0 0 0 / 9%);
-
+  font-weight: bold;
+  border-bottom: 2px solid $hi-yellow;
   .header-container {
     display: flex;
     justify-content: space-between;
@@ -14,7 +13,12 @@ header {
     .header-item {
       flex-basis: auto;
       padding: 3px;
+      color: $hi-black;
+      cursor: pointer;
 
+      &:hover {
+        color: $hi-yellow;
+      }
     }
   }
 }

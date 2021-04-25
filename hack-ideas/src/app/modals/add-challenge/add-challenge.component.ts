@@ -22,7 +22,7 @@ export class AddChallengeComponent implements OnInit {
       id: [],
       title: [],
       description: [],
-      tag: [],
+      tag: [''],
       date: [new Date()],
       count: [0]
     });
@@ -33,6 +33,10 @@ export class AddChallengeComponent implements OnInit {
     this.challenges.push(this.addChallengeForm.value);
     this.utilService.setLocalStorageItem('challenge', this.challenges);
     this.utilService.updateChallengesSubject$.next(true);
+    this.router.navigate([{outlets: {popup: null}}]);
+  }
+
+  cancel(): void {
     this.router.navigate([{outlets: {popup: null}}]);
   }
 

@@ -1,12 +1,104 @@
+@import "../../../assets/theme/variables";
+@import "../../../assets/theme/main-mixins";
+
 :host {
   height: 100%;
   width: 100%;
+  overflow: hidden;
 }
 
 section {
   height: 100%;
+  padding: 10px;
 
-  .grid {
-    width: 100%;
+  .table-container {
+    display: flex;
+    overflow: hidden;
+    height: 90%;
+
+    table {
+      @include flex-box(nowrap, stretch, stretch);
+      flex-direction: column;
+      flex-grow: 1;
+      border-collapse: collapse;
+
+      thead {
+        tr {
+          @include flex-box(nowrap, stretch, stretch);
+          border-bottom: 2px solid $hi-light-yellow;
+          background: $hi-light-yellow;
+
+          th {
+            padding: 16px 10px;
+            flex-basis: 10%;
+            flex-shrink: 0;
+          }
+
+          .description {
+            flex-basis: 30%;
+          }
+
+          .vote-header {
+            flex-basis: 20%;
+            column-span: 2;
+          }
+        }
+      }
+
+      tbody {
+        overflow-y: auto;
+        overflow-x: hidden;
+        @include scroll-bar();
+
+        tr {
+          @include flex-box(nowrap, stretch, stretch);
+          user-select: none;
+
+          border-bottom: 1px solid $hi-color-pale-grey;
+          transition: all ease-in-out 0.3s;
+
+          &:hover {
+            background: $hi-color-pale-grey;
+          }
+        }
+
+        td {
+          @include flex-box(nowrap, center, stretch);
+          padding: 8px 10px;
+          flex-shrink: 0;
+          flex-basis: 10%;
+        }
+
+        .description {
+          flex-basis: 30%;
+        }
+
+        .vote {
+          justify-content: center;
+        }
+      }
+    }
+
   }
+
+  .add-challenge {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+
+    p {
+      font-weight: bold;
+      font-size: 20px;
+      cursor: pointer;
+
+      &:hover {
+        color: $hi-yellow;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.pointer {
+  cursor: pointer;
 }
