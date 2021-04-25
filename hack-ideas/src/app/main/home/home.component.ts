@@ -37,6 +37,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     const voteStatus = this.utilService.getLocalStorageItem(employeeId);
     if (!!this.codeChallenges.length) {
       this.codeChallenges = this.codeChallenges.map((challenge) => {
+        challenge = {...challenge, upvoted: false, downvoted: false};
         if (voteStatus && voteStatus.challenges && voteStatus.challenges.length) {
           voteStatus.challenges.filter((item) => {
             if (challenge.id === item.challengeId) {
@@ -69,7 +70,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   updateVoteStatus(challengeId, upvote, downvote): void {
     const employeeId = this.utilService.getLocalStorageItem('employeeId');
-    let challengesArray = this.utilService.getLocalStorageItem(employeeId) && this.utilService.getLocalStorageItem('voteStatus') && this.utilService.getLocalStorageItem('voteStatus').challenges || [];
+    let challengesArray = this.utilService.getLocalStorageItem(employeeId) && this.utilService.getLocalStorageItem(employeeId).challenges || [];
     challengesArray = [...challengesArray,
       {challengeId, upvote, downvote}
     ];
