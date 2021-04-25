@@ -17,6 +17,9 @@
           <option [value]="'Feature'">Feature</option>
         </select>
       </div>
+      <div class="form-control-container error" *ngIf="errorMessage">
+        {{errorMessage}}
+      </div>
       <div class="form-footer">
         <button class="primary-btn" type="button" (click)="addChallenge()"> ADD</button>
         <button class="primary-btn" type="button" (click)="cancel()"> CANCEL</button>

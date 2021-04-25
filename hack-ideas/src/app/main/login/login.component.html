@@ -7,6 +7,7 @@
       <!--<img [src]="logoPath"/>-->
       <div class="input-container">
         <input placeholder="Employee ID" formControlName="employeeId" type="password" autocomplete="off"/>
+        <p class="error" *ngIf="errorMessage">{{errorMessage}}</p>
       </div>
 
       <div class="form-footer">

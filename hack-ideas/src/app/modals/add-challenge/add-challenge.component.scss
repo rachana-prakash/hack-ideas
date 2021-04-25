@@ -78,6 +78,11 @@
         }
       }
 
+      .error {
+        padding-top: 10px;
+        font-style: italic;
+        color: $hi-error;
+      }
       .form-footer {
         display: flex;
 
