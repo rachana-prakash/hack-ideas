@@ -14,6 +14,7 @@ import {UtilService} from '../../services/util.service';
 export class LoginComponent implements OnInit {
   loginForm: FormGroup = new FormGroup({});
   errorMessage = '';
+  logoPath = '../../../assets/images/logo.png';
 
   constructor(private formBuilder: FormBuilder, private router: Router, private utilService: UtilService) {
   }
