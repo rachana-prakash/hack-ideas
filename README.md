@@ -5,6 +5,10 @@ In this application, a user may enter using their employee id.
 The same user can add coding challenges and sort the list of challenges based on Date and Votes.
 The user can also upvote or downvote a challenge
 
+## Install Packages
+Run `npm install` to install external packages.
+
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
